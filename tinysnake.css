@@ -1,6 +1,12 @@
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 div {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 50px;
-  width: 200px;
-  line-height: 30px;
+  font-size: 25px;
+  width: 325px;
+  line-height: 15px;
+  margin: 0 auto;
 }

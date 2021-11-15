@@ -1,32 +1,29 @@
 const board = document.querySelector('div');
 const score = document.querySelector('span');
-const snake = [{x: 5, y: 7}, {x: 5, y: 8}, {x: 5, y: 9}];
-let food = {x: 5, y: 2};
+const snake = [{x: 10, y: 10}, {x: 10, y: 10}, {x: 10, y: 10}];
+let food = { x: 10, y: 3 };
 let direction = 'N';
 let directionBuffer = 'N';
 let gameOver = false;
 const field = [];
 
-for (let i = 0; i < 10; i++) {
-  field.push([]);
-  for (let j = 0; j < 10; j++) {
-    field[i].push('□');
-  }
+for (let i = 0; i < 20; i++) {
+  field.push(Array(20).fill('□'));
 }
 
 const placeFood = () => {
   let onSnake = true;
   const result = {};
   while (onSnake) {
-    result.x = Math.floor(Math.random() * 10);
-    result.y = Math.floor(Math.random() * 10);
+    result.x = Math.floor(Math.random() * 20);
+    result.y = Math.floor(Math.random() * 20);
     onSnake = snake.some(tile => tile.x === result.x && tile.y === result.y);
   }
   return result;
 };
 
 const drawBoard = () => {
-  field[food.y][food.x] = '■';
+  field[food.y][food.x] = '◘';
   snake.forEach((tile) => { field[tile.y][tile.x] = '■'; });
 
   board.textContent = '';
@@ -97,4 +94,4 @@ setInterval(() => {
     moveSnake();
     drawBoard();
   }
-}, 400);
+}, 200);
